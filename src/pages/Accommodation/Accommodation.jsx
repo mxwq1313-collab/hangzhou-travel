@@ -46,13 +46,13 @@ export default function Accommodation() {
           />
 
           <div className={styles.filter}>
-            {tiers.map((t) => (
+            {tiers.map((ti) => (
               <button
-                key={t.id}
-                className={`${styles.filterBtn} ${tier === t.id ? styles.filterActive : ''}`}
-                onClick={() => setTier(t.id)}
+                key={ti.id}
+                className={`${styles.filterBtn} ${tier === ti.id ? styles.filterActive : ''}`}
+                onClick={() => setTier(ti.id)}
               >
-                {t(t.label, lang)}
+                {t(ti.label, lang)}
               </button>
             ))}
           </div>
