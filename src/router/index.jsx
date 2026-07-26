@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createHashRouter } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import Layout from '../components/layout/Layout';
 import PageTransition from '../components/ui/PageTransition';
@@ -36,7 +36,7 @@ function wrapPage(Component) {
   );
 }
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: '/',
     element: <Layout />,
