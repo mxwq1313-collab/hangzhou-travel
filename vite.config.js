@@ -8,17 +8,6 @@ export default defineConfig({
     target: 'es2020',
     cssMinify: true,
     sourcemap: false,
-    assetsInlineLimit: 4096,
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (id.includes('node_modules/react-dom')) return 'vendor-react';
-          if (id.includes('node_modules/react')) return 'vendor-react';
-          if (id.includes('node_modules/react-router')) return 'vendor-router';
-          if (id.includes('node_modules/framer-motion')) return 'vendor-motion';
-        },
-      },
-    },
   },
   server: {
     open: false,
