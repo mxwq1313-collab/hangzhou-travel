@@ -1,0 +1,111 @@
+.notFound {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  font-size: var(--fs-h3);
+  color: var(--ink-medium);
+}
+
+.hero {
+  position: relative;
+  height: 55vh;
+  min-height: 350px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26,22,19,0.75) 0%, rgba(26,22,19,0.2) 50%, rgba(26,22,19,0.4) 100%);
+  z-index: 1;
+}
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-2xl) var(--gutter);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  width: 100%;
+}
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--gold-light);
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-body-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: var(--space-md);
+  transition: color var(--dur-normal);
+}
+.backBtn:hover { color: #fff; }
+.title {
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  color: #fff;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+.subtitle {
+  font-family: var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  font-style: italic;
+  color: var(--gold-light);
+  margin-top: var(--space-xs);
+}
+
+/* Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+@media (max-width: 639px) {
+  .infoGrid { grid-template-columns: 1fr; }
+}
+.infoCard {
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+  text-align: center;
+}
+.infoEmoji {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+.infoCard h4 {
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--cinnabar);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+.infoCard p {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.6;
+}
+.ingredients {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+}

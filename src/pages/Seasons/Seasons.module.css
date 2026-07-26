@@ -1,0 +1,264 @@
+/* ── Season Picker ── */
+.seasonPicker {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.seasonBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--rice-paper);
+  border: 2px solid var(--rice-paper-dark);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--dur-normal);
+  min-width: 100px;
+}
+
+.seasonBtn:hover {
+  border-color: var(--imperial-gold);
+  transform: translateY(-2px);
+}
+
+.seasonActive {
+  border-color: var(--cinnabar);
+  background: var(--cinnabar-fade);
+}
+
+.seasonEmoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.seasonLabel {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  color: var(--ink-black);
+}
+
+/* ── Detail ── */
+.seasonDetail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.detailImage {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-sm);
+}
+
+.detailInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.detailHeader {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+}
+
+.detailName {
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  color: var(--ink-black);
+}
+
+.detailMonths {
+  font-family: var(--font-heading-en), serif;
+  font-size: var(--fs-body-sm);
+  font-style: italic;
+  color: var(--ink-medium);
+}
+
+.tempBadge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.35em 1em;
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  background: var(--cinnabar-fade);
+  color: var(--cinnabar);
+  border-radius: var(--radius-sm);
+}
+
+.detailDesc {
+  font-size: var(--fs-body);
+  line-height: 1.9;
+  color: var(--ink-deep);
+}
+
+/* ── Rating ── */
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.starActive {
+  color: var(--imperial-gold);
+  font-size: 1.25rem;
+}
+
+.star {
+  color: var(--rice-paper-dark);
+  font-size: 1.25rem;
+}
+
+.ratingLabel {
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  color: var(--ink-light);
+  margin-left: var(--space-xs);
+}
+
+/* ── Highlights ── */
+.highlightsSection,
+.festivalsSection,
+.tipsSection {
+  margin-top: var(--space-lg);
+}
+
+.subTitle {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  color: var(--cinnabar);
+  margin-bottom: var(--space-md);
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.subTitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 1em;
+  background: var(--cinnabar);
+  border-radius: 2px;
+}
+
+.highlightCard {
+  background: var(--rice-paper-warm);
+  border: 1px solid var(--gold-pale);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.highlightText {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+}
+
+/* ── Festivals ── */
+.festivalList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .festivalList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.festivalItem {
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+}
+
+.festivalItem h4 {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: var(--ink-black);
+  margin-bottom: 0.25rem;
+}
+
+.festivalDate {
+  font-size: var(--fs-caption);
+  color: var(--cinnabar);
+  margin-bottom: var(--space-xs);
+}
+
+.festivalItem p {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-medium);
+  line-height: 1.6;
+}
+
+/* ── Tips ── */
+.tipsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  background: var(--rice-paper-warm);
+  border-radius: var(--radius-sm);
+}
+
+.tipsList li {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.6;
+}
+
+/* ── Best Time (dark section) ── */
+.bestTimeText {
+  font-size: var(--fs-body);
+  line-height: 1.9;
+  color: var(--ink-faint);
+}
+
+.bestTimeHighlight {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xl);
+}
+
+.monthTag {
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--imperial-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-md);
+}
+
+.monthGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.month {
+  padding: 0.5em 1em;
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  color: var(--imperial-gold);
+  border: 1px solid var(--imperial-gold);
+  border-radius: var(--radius-sm);
+}

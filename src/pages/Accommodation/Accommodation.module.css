@@ -1,0 +1,60 @@
+/* ── Filter ── */
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 0.5em 1.25em;
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  color: var(--ink-medium);
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--dur-normal);
+}
+
+.filterBtn:hover {
+  border-color: var(--imperial-gold);
+  color: var(--ink-black);
+}
+
+.filterActive {
+  background: var(--cinnabar);
+  color: #fff;
+  border-color: var(--cinnabar);
+}
+
+.filterActive:hover {
+  background: var(--cinnabar-dark);
+  color: #fff;
+}
+
+/* ── Tip Card ── */
+.tipCard {
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+  height: 100%;
+}
+
+.tipTitle {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: var(--cinnabar);
+  margin-bottom: var(--space-sm);
+}
+
+.tipDesc {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.7;
+}

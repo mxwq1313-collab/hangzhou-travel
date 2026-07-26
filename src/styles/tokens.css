@@ -1,0 +1,106 @@
+/* ============================================================
+   杭州旅游网站 — 设计令牌 (Design Tokens)
+   中国传统水墨画风 / Traditional Chinese Ink-wash Palette
+   ============================================================ */
+
+:root {
+  /* ── 主色调：墨 / 宣纸 / 朱砂 / 御金 ── */
+  --ink-black: #1a1613;
+  --ink-deep: #2b2622;
+  --ink-medium: #4a433e;
+  --ink-light: #6b635d;
+  --ink-faint: #a09890;
+
+  --rice-paper: #f5f0e6;
+  --rice-paper-warm: #ede4d3;
+  --rice-paper-cool: #e8e4dc;
+  --rice-paper-dark: #d9d0c0;
+
+  /* 朱砂红 / Cinnabar — Primary */
+  --cinnabar: #c8362d;
+  --cinnabar-light: #d94a40;
+  --cinnabar-dark: #a02520;
+  --cinnabar-fade: rgba(200, 54, 45, 0.08);
+  --cinnabar-glow: rgba(200, 54, 45, 0.25);
+
+  /* 御金 / Imperial Gold — Accent */
+  --imperial-gold: #c9a14a;
+  --gold-light: #e0c779;
+  --gold-pale: #f0e4c8;
+  --gold-dark: #a07830;
+  --gold-glow: rgba(201, 161, 74, 0.3);
+
+  /* 青玉 / Jade — Tertiary (nature) */
+  --jade: #5a7d6a;
+  --jade-light: #8aa890;
+  --celadon: #a3c1a6;
+  --celadon-pale: #d4e5d6;
+
+  /* 水色 / Water */
+  --water: #6b8fa8;
+  --water-light: #9ab8cc;
+  --water-pale: #c8dae6;
+
+  /* ── 排版 / Typography ── */
+  --font-display-cn: 'Ma Shan Zheng', 'STKaiti', 'KaiTi', serif;
+  --font-heading-cn: 'ZCOOL XiaoWei', 'STSong', 'SimSun', serif;
+  --font-body-cn: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+  --font-ui-cn: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+
+  --font-display-en: 'Playfair Display', 'Cormorant Garamond', 'Georgia', serif;
+  --font-heading-en: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body-en: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-ui-en: 'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  /* 流体字号 / Fluid font sizes */
+  --fs-hero: clamp(3rem, 8vw, 7rem);
+  --fs-hero-sub: clamp(1rem, 2.5vw, 1.5rem);
+  --fs-h1: clamp(2.2rem, 5vw, 3.5rem);
+  --fs-h2: clamp(1.6rem, 3.5vw, 2.4rem);
+  --fs-h3: clamp(1.3rem, 2.5vw, 1.8rem);
+  --fs-h4: clamp(1.1rem, 1.8vw, 1.4rem);
+  --fs-body: clamp(1rem, 1.2vw, 1.125rem);
+  --fs-body-sm: clamp(0.875rem, 1vw, 1rem);
+  --fs-caption: clamp(0.75rem, 0.9vw, 0.875rem);
+  --fs-seal: clamp(0.6rem, 0.8vw, 0.75rem);
+
+  /* ── 间距 / Spacing (8px grid) ── */
+  --space-xs: 0.5rem;    /* 8px */
+  --space-sm: 1rem;      /* 16px */
+  --space-md: 1.5rem;    /* 24px */
+  --space-lg: 2rem;      /* 32px */
+  --space-xl: 3rem;      /* 48px */
+  --space-2xl: 4rem;     /* 64px */
+  --space-3xl: 6rem;     /* 96px */
+  --space-4xl: 8rem;     /* 128px */
+
+  /* ── 布局 / Layout ── */
+  --container-max: 1400px;
+  --gutter: clamp(1rem, 5vw, 4rem);
+  --navbar-height: 4.5rem;
+
+  /* ── 边框 & 圆角 / Borders & Radius ── */
+  --border-ink: 1px solid var(--ink-line);
+  --border-gold: 1px solid var(--imperial-gold);
+  --border-gold-thin: 1px solid var(--gold-pale);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-xl: 16px;
+
+  /* ── 阴影 / Shadows ── */
+  --shadow-ink: 0 8px 30px rgba(26, 22, 19, 0.12);
+  --shadow-ink-lg: 0 20px 60px rgba(26, 22, 19, 0.18);
+  --shadow-gold: 0 4px 20px rgba(201, 161, 74, 0.2);
+  --shadow-card-hover: 0 12px 40px rgba(26, 22, 19, 0.15);
+
+  /* ── 过渡 / Transitions ── */
+  --ease-ink: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 150ms;
+  --dur-normal: 300ms;
+  --dur-slow: 600ms;
+  --dur-page: 400ms;
+
+  /* 墨线透明度 / Ink line opacity */
+  --ink-line: rgba(26, 22, 19, 0.85);
+}

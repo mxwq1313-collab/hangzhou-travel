@@ -1,0 +1,191 @@
+.accordionWrap {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ── Summary ── */
+.summary {
+  font-size: var(--fs-body);
+  line-height: 1.8;
+  color: var(--ink-deep);
+  margin-bottom: var(--space-md);
+}
+
+/* ── Suitable ── */
+.suitable {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4em 1em;
+  background: var(--gold-pale);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-body-sm);
+  color: var(--gold-dark);
+  margin-bottom: var(--space-lg);
+}
+
+.suitableLabel {
+  font-weight: 600;
+  color: var(--ink-deep);
+}
+
+/* ── Days Grid ── */
+.daysGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ── Day Card ── */
+.dayCard {
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.dayHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--ink-deep);
+}
+
+.dayNumber {
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h4);
+  color: var(--imperial-gold);
+  font-weight: 400;
+}
+
+.dayTheme {
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  color: var(--gold-pale);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Schedule ── */
+.schedule {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.scheduleItem {
+  display: flex;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--rice-paper-dark);
+}
+
+.scheduleItem:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+@media (max-width: 639px) {
+  .scheduleItem {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+}
+
+.scheduleTime {
+  min-width: 5rem;
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--cinnabar);
+  padding-top: 0.15rem;
+}
+
+.scheduleContent {
+  flex: 1;
+}
+
+.scheduleTitle {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--ink-black);
+  margin-bottom: 0.25rem;
+}
+
+.scheduleDetail {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-medium);
+  line-height: 1.6;
+}
+
+.scheduleTips {
+  font-size: var(--fs-caption);
+  color: var(--ink-light);
+  margin-top: 0.35rem;
+}
+
+/* ── Practical ── */
+.practical,
+.notes {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 2px solid var(--gold-pale);
+}
+
+.practicalTitle {
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-body-sm);
+  font-weight: 600;
+  color: var(--cinnabar);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+
+.practicalValue {
+  font-size: var(--fs-body);
+  color: var(--ink-deep);
+}
+
+.notesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: var(--space-sm);
+}
+
+.notesList li {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.6;
+  list-style: disc;
+}
+
+/* ── Tip Cards ── */
+.tipCard {
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+  height: 100%;
+  transition: border-color var(--dur-normal);
+}
+
+.tipCard:hover {
+  border-color: var(--imperial-gold);
+}
+
+.tipTitle {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: var(--cinnabar);
+  margin-bottom: var(--space-sm);
+}
+
+.tipDesc {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.7;
+}

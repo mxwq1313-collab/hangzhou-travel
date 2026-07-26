@@ -1,0 +1,80 @@
+import { IMAGES } from './images';
+export const accommodations = [
+  // ── 豪华 / Luxury ──
+  {
+    id: 'amanfayun', tier: 'luxury', name: { zh: '法云安缦', en: 'Amanfayun' },
+    area: { zh: '西湖区 · 灵隐景区', en: 'Xihu District · Lingyin Scenic Area' },
+    priceRange: { zh: '¥5,000-15,000 /晚', en: '¥5,000-15,000/night' },
+    rating: 5, features: [{ zh: '禅意庭院', en: 'Zen garden' }, { zh: '茶道体验', en: 'Tea ceremony' }, { zh: '私人管家', en: 'Butler service' }],
+    desc: { zh: '由灵隐寺旁的法云古村改建而成，保留了中国传统村落的风貌。47间客舍散布于古树林间，每一间都是独立的院落。步行即可到达灵隐寺和永福寺。', en: 'Transformed from an ancient village beside Lingyin Temple, preserving traditional Chinese hamlet architecture. 47 rooms scattered among ancient trees, each in its own courtyard. Walking distance to Lingyin and Yongfu temples.' },
+    image: IMAGES.hotelLuxury, nearbyAttractions: [{ zh: '灵隐寺', en: 'Lingyin Temple' }, { zh: '永福寺', en: 'Yongfu Temple' }],
+  },
+  {
+    id: 'four-seasons-hz', tier: 'luxury', name: { zh: '杭州西子湖四季酒店', en: 'Four Seasons Hangzhou at West Lake' },
+    area: { zh: '西湖区 · 杨公堤', en: 'Xihu District · Yanggong Causeway' },
+    priceRange: { zh: '¥3,500-8,000 /晚', en: '¥3,500-8,000/night' },
+    rating: 5, features: [{ zh: '西湖景观', en: 'Lake views' }, { zh: '金沙厅餐厅', en: 'Jin Sha restaurant' }, { zh: '园林设计', en: 'Classical gardens' }],
+    desc: { zh: '位于西湖杨公堤畔，融合了江南园林和皇家宫廷建筑风格。酒店内的金沙厅被誉为杭州最佳中餐厅之一。私人码头可乘船游湖。', en: 'On the Yanggong Causeway, blending Jiangnan garden and imperial palace architecture. Its Jin Sha restaurant is renowned as one of Hangzhou\'s best. Private pier for lake cruises.' },
+    image: IMAGES.hotelLuxury, nearbyAttractions: [{ zh: '杨公堤', en: 'Yanggong Causeway' }, { zh: '花港观鱼', en: 'Flower Harbor' }],
+  },
+  {
+    id: 'park-hyatt-hz', tier: 'luxury', name: { zh: '杭州柏悦酒店', en: 'Park Hyatt Hangzhou' },
+    area: { zh: '上城区 · 钱江新城', en: 'Shangcheng District · Qianjiang CBD' },
+    priceRange: { zh: '¥2,000-5,000 /晚', en: '¥2,000-5,000/night' },
+    rating: 5, features: [{ zh: '钱塘江景', en: 'River views' }, { zh: '高空酒吧', en: 'Sky bar' }, { zh: '无边泳池', en: 'Infinity pool' }],
+    desc: { zh: '坐落于钱塘江畔的华润大厦高层，可俯瞰钱塘江美景和城市天际线。设计融合了现代风格与江南元素。', en: 'Set in the high floors of China Resources Tower overlooking the Qiantang River and city skyline. Modern design infused with Jiangnan elements.' },
+    image: IMAGES.hotelLuxury, nearbyAttractions: [{ zh: '钱江新城', en: 'Qianjiang CBD' }, { zh: '万象城', en: 'MixC Mall' }],
+  },
+
+  // ── 舒适 / Mid-Range ──
+  {
+    id: 'zen-hotel', tier: 'mid', name: { zh: '隐居西湖', en: 'Hermitage by West Lake' },
+    area: { zh: '西湖区 · 梅家坞', en: 'Xihu District · Meijiawu' },
+    priceRange: { zh: '¥600-1,500 /晚', en: '¥600-1,500/night' },
+    rating: 4, features: [{ zh: '茶园景观', en: 'Tea plantation views' }, { zh: '特色早餐', en: 'Local breakfast' }, { zh: '品茶体验', en: 'Tea tasting' }],
+    desc: { zh: '坐落于龙井茶核心产区梅家坞，被万亩茶园环绕。清晨在茶香中醒来，可参与采茶、制茶体验，是茶文化爱好者的理想之选。', en: 'In Meijiawu, the heart of Longjing tea country, surrounded by vast tea plantations. Wake up to tea fragrance and join tea-picking and processing experiences — a dream for tea lovers.' },
+    image: IMAGES.hotelMid, nearbyAttractions: [{ zh: '梅家坞茶园', en: 'Meijiawu Tea Village' }, { zh: '云栖竹径', en: 'Bamboo-lined Path at Yunqi' }],
+  },
+  {
+    id: 'lan-inn', tier: 'mid', name: { zh: '兰亭安麓', en: 'Lanting Anlu' },
+    area: { zh: '西湖区 · 龙井路', en: 'Xihu District · Longjing Road' },
+    priceRange: { zh: '¥800-2,000 /晚', en: '¥800-2,000/night' },
+    rating: 4, features: [{ zh: '江南庭院', en: 'Jiangnan courtyard' }, { zh: '精品民宿', en: 'Boutique guesthouse' }, { zh: '文化体验', en: 'Cultural activities' }],
+    desc: { zh: '由明清古建筑迁建改造而成，保留了传统徽派建筑韵味。客房围绕庭院布置，安静雅致。步行可达龙井问茶和茶叶博物馆。', en: 'Relocated and restored Ming-Qing buildings preserving Hui-style architectural charm. Rooms arranged around courtyards, quiet and elegant. Walking distance to Longjing tea village and tea museum.' },
+    image: IMAGES.hotelMid, nearbyAttractions: [{ zh: '龙井村', en: 'Longjing Village' }, { zh: '中国茶叶博物馆', en: 'China Tea Museum' }],
+  },
+  {
+    id: 'watermark-hostel', tier: 'mid', name: { zh: '水印之家', en: 'Watermark Hostel' },
+    area: { zh: '拱墅区 · 运河天地', en: 'Gongshu District · Canal District' },
+    priceRange: { zh: '¥400-800 /晚', en: '¥400-800/night' },
+    rating: 4, features: [{ zh: '运河景观', en: 'Canal views' }, { zh: '工业风设计', en: 'Industrial design' }, { zh: '公共厨房', en: 'Shared kitchen' }],
+    desc: { zh: '位于京杭大运河畔的旧厂房改造空间，融合工业风与中式元素。屋顶露台可欣赏运河夜景，周边有众多咖啡馆和小店。', en: 'A repurposed factory by the Grand Canal, blending industrial style with Chinese touches. Rooftop terrace with canal night views, surrounded by cafes and boutiques.' },
+    image: IMAGES.hotelMid, nearbyAttractions: [{ zh: '拱宸桥', en: 'Gongchen Bridge' }, { zh: '运河文化广场', en: 'Canal Culture Square' }],
+  },
+
+  // ── 经济 / Budget ──
+  {
+    id: 'west-lake-youth-hostel', tier: 'budget', name: { zh: '西湖国际青年旅舍', en: 'West Lake Youth Hostel' },
+    area: { zh: '西湖区 · 南山路', en: 'Xihu District · Nanshan Road' },
+    priceRange: { zh: '¥50-120 /床位，¥180-350 /房间', en: '¥50-120/dorm bed, ¥180-350/room' },
+    rating: 3, features: [{ zh: '位置优越', en: 'Prime location' }, { zh: '社交氛围', en: 'Social atmosphere' }, { zh: '经济实惠', en: 'Affordable' }],
+    desc: { zh: '距离西湖仅300米，地理位置极佳。提供多人间和标准间，公共区域热闹温馨，适合背包客和年轻人交流旅行经验。', en: 'Only 300m from West Lake with unbeatable location. Dorm beds and private rooms available, lively common areas perfect for backpackers to share travel stories.' },
+    image: IMAGES.hotelBudget, nearbyAttractions: [{ zh: '西湖', en: 'West Lake' }, { zh: '中国美院', en: 'China Academy of Art' }],
+  },
+  {
+    id: 'hangzhou-inn', tier: 'budget', name: { zh: '如家精选（西湖店）', en: 'Home Inn Select (West Lake)' },
+    area: { zh: '上城区 · 定安路', en: 'Shangcheng District · Ding\'an Road' },
+    priceRange: { zh: '¥200-400 /晚', en: '¥200-400/night' },
+    rating: 3, features: [{ zh: '市中心位置', en: 'Central location' }, { zh: '干净整洁', en: 'Clean & tidy' }, { zh: '性价比高', en: 'Great value' }],
+    desc: { zh: '位于市中心商业区，地铁1号线定安路站步行可达，距离河坊街和南宋御街仅需步行10分钟。房间整洁，性价比高。', en: 'In the commercial heart of downtown, within walking distance of Metro Line 1 Ding\'an Road Station and 10 minutes to Hefang Street and Southern Song Imperial Street. Clean rooms, excellent value.' },
+    image: IMAGES.hotelBudget, nearbyAttractions: [{ zh: '河坊街', en: 'Hefang Street' }, { zh: '南宋御街', en: 'Imperial Street' }],
+  },
+  {
+    id: 'green-tea-guesthouse', tier: 'budget', name: { zh: '青茗小院', en: 'Green Tea Courtyard' },
+    area: { zh: '西湖区 · 满觉陇', en: 'Xihu District · Manjuelong' },
+    priceRange: { zh: '¥150-350 /晚', en: '¥150-350/night' },
+    rating: 4, features: [{ zh: '山居体验', en: 'Hillside living' }, { zh: '家庭民宿', en: 'Family-run guesthouse' }, { zh: '桂花季爆红', en: 'Popular in osmanthus season' }],
+    desc: { zh: '位于满觉陇山坡上，是一家温馨的家庭民宿。秋季门前桂花盛开，整个院子弥漫桂花香。老板热情好客，提供地道的家常早餐。', en: 'A cozy family-run guesthouse on the Manjuelong hillside. In autumn, osmanthus trees bloom around the courtyard, filling the air with sweetness. The hosts are warm and serve authentic homemade breakfast.' },
+    image: IMAGES.hotelBudget, nearbyAttractions: [{ zh: '满陇桂雨', en: 'Manjuelong Osmanthus Rain' }, { zh: '虎跑泉', en: 'Hupao Spring' }],
+  },
+];

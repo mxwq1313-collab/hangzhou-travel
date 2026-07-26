@@ -1,0 +1,24 @@
+﻿.wrap {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-block: var(--space-3xl);
+}
+
+.title {
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h1);
+  color: var(--ink-deep);
+  margin: var(--space-lg) 0 var(--space-sm);
+  letter-spacing: 0.05em;
+}
+
+.desc {
+  font-family: var(--font-body-cn), var(--font-body-en), serif;
+  color: var(--ink-medium);
+  max-width: 480px;
+  margin: 0 auto var(--space-xl);
+  line-height: 1.8;
+}

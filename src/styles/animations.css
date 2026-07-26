@@ -1,0 +1,175 @@
+/* ============================================================
+   杭州旅游网站 — 纯 CSS 动画 (Pure CSS Animations)
+   Framer Motion fallbacks & decorative animations
+   ============================================================ */
+
+/* ── 淡入上移 / Fade In Up ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUpSm {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── 淡入 / Fade In ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── 从左滑入 / Slide In Left ── */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── 从右滑入 / Slide In Right ── */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ── 缩放进入 / Scale In ── */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ── 印章按下 / Seal Stamp ── */
+@keyframes sealStamp {
+  0% {
+    opacity: 0;
+    transform: scale(2.5) rotate(-15deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.95) rotate(2deg);
+  }
+  80% {
+    transform: scale(1.05) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* ── 祥云漂浮 / Cloud Float ── */
+@keyframes cloudFloat {
+  0%   { transform: translateX(-5%) translateY(0); }
+  25%  { transform: translateX(0%) translateY(-8px); }
+  50%  { transform: translateX(5%) translateY(0); }
+  75%  { transform: translateX(0%) translateY(8px); }
+  100% { transform: translateX(-5%) translateY(0); }
+}
+
+/* ── 水墨扩散 / Ink Spread ── */
+@keyframes inkSpread {
+  from {
+    clip-path: circle(0% at 50% 50%);
+    opacity: 0;
+  }
+  to {
+    clip-path: circle(100% at 50% 50%);
+    opacity: 1;
+  }
+}
+
+/* ── 水纹涟漪 / Water Ripple ── */
+@keyframes ripple {
+  0%   { transform: scale(1); opacity: 0.6; }
+  50%  { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+@keyframes ripplePulse {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(10px); }
+}
+
+/* ── 金边闪烁 / Gold Shimmer ── */
+@keyframes goldShimmer {
+  0%   { border-color: var(--gold-pale); }
+  50%  { border-color: var(--imperial-gold); }
+  100% { border-color: var(--gold-pale); }
+}
+
+/* ── 笔触绘制 / Stroke Draw ── */
+@keyframes strokeDraw {
+  from { stroke-dashoffset: var(--stroke-length, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+
+/* ── 页面过渡 (CSS fallback) / Page Transition ── */
+.page-enter {
+  animation: fadeInUp var(--dur-page) var(--ease-ink) both;
+}
+
+.page-exit {
+  animation: fadeIn var(--dur-fast) var(--ease-ink) both reverse;
+}
+
+/* ── 滚动揭示可见状态 / Scroll Reveal Visible ── */
+.reveal-visible {
+  animation: fadeInUp var(--dur-slow) var(--ease-ink) both;
+}
+
+/* ── 交错子元素 / Stagger Children ── */
+.stagger > * {
+  opacity: 0;
+  animation: fadeInUpSm var(--dur-slow) var(--ease-ink) forwards;
+}
+
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 100ms; }
+.stagger > *:nth-child(3) { animation-delay: 200ms; }
+.stagger > *:nth-child(4) { animation-delay: 300ms; }
+.stagger > *:nth-child(5) { animation-delay: 400ms; }
+.stagger > *:nth-child(6) { animation-delay: 500ms; }
+.stagger > *:nth-child(7) { animation-delay: 600ms; }
+.stagger > *:nth-child(8) { animation-delay: 700ms; }
+
+/* ── 减少动画 / Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,93 @@
+/* ── Filter ── */
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  padding: 0.5em 1.25em;
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  color: var(--ink-medium);
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--dur-normal);
+}
+
+.filterBtn:hover {
+  border-color: var(--cinnabar);
+  color: var(--ink-black);
+}
+
+.filterActive {
+  background: var(--cinnabar);
+  color: #fff;
+  border-color: var(--cinnabar);
+}
+
+.filterActive:hover {
+  background: var(--cinnabar-dark);
+  color: #fff;
+}
+
+/* ── Story Card ── */
+.storyCard {
+  background: var(--rice-paper);
+  border: 1px solid var(--gold-pale);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+  height: 100%;
+  transition: box-shadow var(--dur-normal), transform var(--dur-normal);
+}
+
+.storyCard:hover {
+  box-shadow: var(--shadow-gold);
+  transform: translateY(-2px);
+}
+
+.storyTitle {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: var(--cinnabar);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--gold-pale);
+}
+
+.storyDesc {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.8;
+}
+
+/* ── CTA Banner ── */
+.ctaBanner {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-xl);
+  background: var(--rice-paper-warm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gold-pale);
+}
+
+.ctaTitle {
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  color: var(--ink-black);
+  margin-bottom: var(--space-sm);
+}
+
+.ctaDesc {
+  font-size: var(--fs-body);
+  color: var(--ink-medium);
+  margin-bottom: var(--space-xl);
+  max-width: 500px;
+  margin-inline: auto;
+}

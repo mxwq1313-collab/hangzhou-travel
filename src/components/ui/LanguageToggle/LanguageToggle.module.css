@@ -1,0 +1,49 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--dur-normal) var(--ease-ink);
+  border: none;
+  background: none;
+  overflow: hidden;
+}
+
+/* ── Nav variant ── */
+.nav {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 1px solid var(--imperial-gold);
+  color: var(--imperial-gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.nav:hover {
+  background: var(--imperial-gold);
+  color: #fff;
+}
+
+/* ── Pill variant ── */
+.pill {
+  padding: 0.4em 1em;
+  border-radius: 20px;
+  border: 1px solid var(--ink-line);
+  color: var(--ink-medium);
+  font-size: var(--fs-caption);
+  gap: 0.4em;
+  letter-spacing: 0.04em;
+}
+
+.pill:hover {
+  border-color: var(--cinnabar);
+  color: var(--cinnabar);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+}

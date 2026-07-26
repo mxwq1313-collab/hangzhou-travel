@@ -1,0 +1,100 @@
+.wrapper {
+  margin-bottom: var(--space-2xl);
+}
+
+.center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.left {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ── 印章区域 ── */
+.sealArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.left .sealArea {
+  align-items: flex-start;
+}
+
+.sealLine {
+  width: 1px;
+  height: 2rem;
+  background: linear-gradient(to bottom, var(--cinnabar), transparent);
+}
+
+/* ── 标题 ── */
+.title {
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  color: var(--ink-black);
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+}
+
+.light .title {
+  color: var(--rice-paper);
+}
+
+.subtitle {
+  display: block;
+  font-family: var(--font-heading-en), serif;
+  font-size: var(--fs-body-sm);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-medium);
+  margin-top: 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.light .subtitle {
+  color: var(--gold-pale);
+}
+
+/* ── 分隔线 ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.center .divider {
+  justify-content: center;
+}
+
+.dividerLine {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--imperial-gold);
+}
+
+.light .dividerLine {
+  background: var(--gold-light);
+}
+
+.dividerDot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cinnabar);
+}
+
+.light .dividerDot {
+  background: var(--gold-light);
+}

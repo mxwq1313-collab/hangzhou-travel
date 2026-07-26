@@ -1,0 +1,125 @@
+/* ── Transport Grid ── */
+.transportGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .transportGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .transportGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Transport Card ── */
+.transportCard {
+  background: var(--rice-paper);
+  border: 1px solid var(--rice-paper-dark);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--dur-normal), box-shadow var(--dur-normal);
+}
+
+.transportCard:hover {
+  border-color: var(--imperial-gold);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.transportHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.transportIcon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.transportTitle {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: var(--ink-black);
+}
+
+.transportDetail {
+  font-size: var(--fs-body-sm);
+  line-height: 1.7;
+  color: var(--ink-deep);
+  flex: 1;
+}
+
+/* ── Tips ── */
+.tipsList {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--rice-paper-dark);
+}
+
+.tipsTitle {
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--cinnabar);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+
+.tipsList ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.tipsList li {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.6;
+}
+
+.linesInfo {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--rice-paper-dark);
+}
+
+.linesInfo p {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-deep);
+  line-height: 1.6;
+}
+
+/* ── Tip Card (dark section) ── */
+.tipCard {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+  height: 100%;
+}
+
+.tipCardTitle {
+  font-family: var(--font-heading-cn), var(--font-heading-en), serif;
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  color: var(--imperial-gold);
+  margin-bottom: var(--space-sm);
+}
+
+.tipCardDesc {
+  font-size: var(--fs-body-sm);
+  color: var(--ink-faint);
+  line-height: 1.7;
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://hangzhou.travel/sitemap.xml
+
+# 杭州旅游指南 / Hangzhou Travel Guide

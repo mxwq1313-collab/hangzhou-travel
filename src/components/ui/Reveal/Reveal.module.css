@@ -1,0 +1,11 @@
+/* Reveal uses framer-motion or inline styles — CSS module is for fallback */
+.reveal-fallback {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-fallback.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

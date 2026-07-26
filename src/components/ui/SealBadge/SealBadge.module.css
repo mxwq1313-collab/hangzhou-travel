@@ -1,0 +1,80 @@
+.seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cinnabar);
+  transform: rotate(-3deg);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+/* ── Sizes ── */
+.sm {
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  min-height: 2.5rem;
+}
+
+.md {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  height: 3.5rem;
+  min-height: 3.5rem;
+}
+
+.lg {
+  width: 5rem;
+  min-width: 5rem;
+  height: 5rem;
+  min-height: 5rem;
+}
+
+/* ── Colors ── */
+.cinnabar {
+  border-color: var(--cinnabar);
+  background: rgba(200, 54, 45, 0.06);
+}
+
+.cinnabar .text {
+  color: var(--cinnabar);
+}
+
+.gold {
+  border-color: var(--imperial-gold);
+  background: rgba(201, 161, 74, 0.06);
+}
+
+.gold .text {
+  color: var(--imperial-gold);
+}
+
+.ink {
+  border-color: var(--ink-black);
+  background: rgba(26, 22, 19, 0.04);
+}
+
+.ink .text {
+  color: var(--ink-black);
+}
+
+.text {
+  font-family: var(--font-display-cn), 'STKaiti', 'KaiTi', serif;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-align: center;
+}
+
+.sm .text { font-size: 0.65rem; }
+.md .text { font-size: 0.85rem; }
+.lg .text { font-size: 1.15rem; }
+
+/* Rotation variation */
+.seal:nth-child(odd) {
+  transform: rotate(-3deg);
+}
+
+.seal:nth-child(even) {
+  transform: rotate(2deg);
+}

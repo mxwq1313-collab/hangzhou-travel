@@ -1,0 +1,127 @@
+/* ── Stats Bar ── */
+.statsBar {
+  background: var(--ink-deep);
+  padding-block: var(--space-xl);
+  margin-top: -1px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: var(--space-md);
+}
+
+.statValue {
+  font-family: var(--font-display-en), var(--font-display-cn), serif;
+  font-size: var(--fs-h1);
+  font-weight: 400;
+  color: var(--imperial-gold);
+  line-height: 1;
+}
+
+.statUnit {
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  color: var(--ink-faint);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Seasonal Cards ── */
+.seasonCard {
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: transform var(--dur-normal) var(--ease-ink);
+}
+
+.seasonCard:hover {
+  transform: translateY(-4px);
+}
+
+.seasonImage {
+  position: relative;
+  aspect-ratio: 3/4;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--ink-deep);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.seasonOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 22, 19, 0.15),
+    rgba(26, 22, 19, 0.5)
+  );
+}
+
+.seasonName {
+  position: relative;
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.seasonMonths {
+  position: relative;
+  font-family: var(--font-ui-cn), var(--font-ui-en), sans-serif;
+  font-size: var(--fs-caption);
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+}
+
+/* ── CTA Banner ── */
+.ctaBanner {
+  background: linear-gradient(135deg, var(--rice-paper-warm), var(--rice-paper-cool));
+  border: 1px solid var(--gold-pale);
+  border-radius: var(--radius-sm);
+  padding: var(--space-3xl);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 639px) {
+  .ctaBanner {
+    padding: var(--space-xl) var(--space-md);
+  }
+}
+
+.ctaTitle {
+  font-family: var(--font-display-cn), var(--font-display-en), serif;
+  font-size: var(--fs-h2);
+  font-weight: 400;
+  color: var(--ink-black);
+  margin-bottom: var(--space-sm);
+}
+
+.ctaDesc {
+  font-size: var(--fs-body);
+  color: var(--ink-medium);
+  margin-bottom: var(--space-lg);
+  line-height: 1.7;
+}
