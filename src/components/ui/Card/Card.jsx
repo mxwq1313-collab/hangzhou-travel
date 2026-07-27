@@ -2,24 +2,12 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { T } from '../../shared/BilingualText';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion';
+import SafeImage from '../../shared/SafeImage';
 import styles from './Card.module.css';
 
 /**
- * 通用卡片组件 — 用于景点/美食/住宿等
- * Universal card component for attractions, food, accommodation, etc.
- *
- * Props:
- *   image       — image URL
- *   title       — {zh, en} card title
- *   subtitle    — {zh, en} card subtitle
- *   description — {zh, en} short description
- *   tags        — {zh, en}[] tag array
- *   link        — internal route path
- *   onClick     — click handler (overrides link)
- *   variant     — 'vertical' | 'horizontal'
- *   size        — 'sm' | 'md' | 'lg'
- *   badge       — {zh, en} optional badge text
- *   rating      — number (1-5) for hotel cards
+ * 通用卡片组件 — 使用 SafeImage 确保加载失败时有 fallback
+ * Universal card component with safe image fallback
  */
 export default function Card({
   image,
@@ -40,14 +28,15 @@ export default function Card({
 
   const cardContent = (
     <div className={`${styles.card} ${styles[variant]} ${styles[size]} ${className}`}>
-      {/* Image */}
+      {/* Image — 使用 SafeImage 避免无 onError 的裸 <img> */}
       <div className={styles.imageWrapper}>
-        <img
+        <SafeImage
           src={image}
           alt={typeof title === 'string' ? title : title?.zh || ''}
           className={styles.image}
           loading="lazy"
-          role="img"
+          seed={index}
+          fallbackIcon="🖼️"
         />
         {badge && (
           <span className={styles.badge}>

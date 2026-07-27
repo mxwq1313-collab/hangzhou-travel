@@ -21,6 +21,24 @@
 }
 
 /* ── Background ── */
+.bgImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.bgImgVisible {
+  opacity: 1;
+  animation: slowZoom 30s ease-in-out infinite alternate;
+}
+
+/* 保留 .bg 兼容旧引用 */
 .bg {
   position: absolute;
   inset: 0;
@@ -28,7 +46,6 @@
   background-position: center;
   background-repeat: no-repeat;
   z-index: 0;
-  animation: slowZoom 30s ease-in-out infinite alternate;
 }
 
 @keyframes slowZoom {

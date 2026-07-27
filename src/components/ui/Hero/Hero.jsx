@@ -1,19 +1,20 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { T } from '../../shared/BilingualText';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion';
 import styles from './Hero.module.css';
 
 /**
- * 主视觉横幅组件 — 中国传统水墨风格
- * Hero banner with ink-wash styling and staggered entrance animation
+ * 主视觉横幅组件
+ * Hero banner — uses <img> for reliable loading detection + fallback gradient
  *
  * Props:
- *   image        — background image URL
- *   title        — {zh, en} main title (calligraphy)
- *   subtitle     — {zh, en} subtitle
- *   description  — {zh, en} body text
- *   cta          — {zh, en} CTA button text
- *   onCtaClick   — CTA click handler
+ *   image        — 图片 URL
+ *   title        — {zh, en}
+ *   subtitle     — {zh, en}
+ *   description  — {zh, en}
+ *   cta          — {zh, en}
+ *   onCtaClick   — CTA 回调
  *   height       — 'screen' | 'large' | 'medium'
  */
 export default function Hero({
@@ -27,6 +28,26 @@ export default function Hero({
   className = '',
 }) {
   const prefersReduced = usePrefersReducedMotion();
+  const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgFailed, setImgFailed] = useState(false);
+
+  // 预加载图片
+  useEffect(() => {
+    if (!image) {
+      setImgFailed(true);
+      return;
+    }
+    setImgLoaded(false);
+    setImgFailed(false);
+    const img = new Image();
+    img.onload = () => setImgLoaded(true);
+    img.onerror = () => setImgFailed(true);
+    img.src = image;
+    return () => {
+      img.onload = null;
+      img.onerror = null;
+    };
+  }, [image]);
 
   const containerVariants = {
     hidden: {},
@@ -65,17 +86,14 @@ export default function Hero({
         )}
 
         {cta && (
-          <button
-            className={styles.cta}
-            onClick={onCtaClick}
-          >
+          <button className={styles.cta} onClick={onCtaClick}>
             <T obj={cta} />
             <span className={styles.ctaArrow}>→</span>
           </button>
         )}
       </div>
 
-      {/* 滚动提示 / Scroll indicator */}
+      {/* 滚动提示 */}
       <div className={styles.scrollHint}>
         <span className={styles.scrollLine} />
         <span className={styles.scrollText}>
@@ -87,16 +105,20 @@ export default function Hero({
 
   return (
     <section className={`${styles.hero} ${styles[height]} ${className}`}>
-      {/* 背景图片 / Background */}
-      <div
-        className={styles.bg}
-        style={image ? { backgroundImage: `url(${image})` } : undefined}
-      />
+      {/* 背景图片 — 使用 <img> 而非 CSS background，便于检测加载失败 */}
+      {image && !imgFailed && (
+        <img
+          src={image}
+          alt=""
+          className={`${styles.bgImg} ${imgLoaded ? styles.bgImgVisible : ''}`}
+          aria-hidden="true"
+        />
+      )}
 
-      {/* 水墨纹理叠加 / Ink texture overlay */}
+      {/* 水墨纹理叠加 */}
       <div className={styles.inkOverlay} />
 
-      {/* 渐变叠加 / Gradient overlays */}
+      {/* 渐变叠加 */}
       <div className={styles.topOverlay} />
       <div className={styles.bottomOverlay} />
 

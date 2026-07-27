@@ -1,56 +1,59 @@
 /**
- * 杭州旅游网站 — 实景照片 (Unsplash)
- *
- * 已验证状态：30 张图片中 27 张 HTTP 200，3 张 404 已替换为可用替代图片。
- * 验证方法：curl -sI https://images.unsplash.com/photo-{ID}?w=10&h=10
+ * 杭州旅游网站 — 本地图片资源
+ * 所有图片存储在 public/images/，通过 Vite BASE_URL 安全引用
  */
 
-const u = (id, w, h) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&h=${h}&fit=crop&q=80`;
+const asset = (path) => `${import.meta.env.BASE_URL}images/${path}`;
 
 const IMAGES = {
-  // ── Heroes (1600×900) ──────────────────────────────────────
-  heroWestLake:   u('1547981609-4b6bfe67ca0b', 1600, 900), // ✅ 西湖/湖泊景观
-  heroLeifeng:    u('1588252910189-9c9f5535646b', 1600, 900), // ✅ 夕阳寺庙/塔
-  heroLingyin:    u('1567975789927-dfaf473ca06e', 1600, 900), // ✅ 中式建筑/庭院
-  heroHotel:      u('1533105079780-92b9be482077', 1600, 900), // ✅ 替代 — 现代建筑室内
-  heroTransport:  u('1506744038136-46273834b3fb', 1600, 900), // ✅ 替代 — 山水风光/旅行
-  heroSeason:     u('1558422719-d6982435e4e4', 1600, 900), // ✅ 自然风景
-  heroItinerary:  u('1486573338004-4dcd200269f2', 1600, 900), // ✅ 地图/旅行规划
-  heroFood:       u('1540189549336-e6e99c3679fe', 1600, 900), // ✅ 替代 — 中式美食拼盘
+  // ── Heroes ──────────────────────────────────────────────────
+  heroWestLake:   asset('heroes/hero-westlake.jpg'),
+  heroLeifeng:    asset('heroes/hero-leifeng.jpg'),
+  heroLingyin:    asset('heroes/hero-lingyin.jpg'),
+  heroHotel:      asset('heroes/hero-hotel.jpg'),
+  heroTransport:  asset('heroes/hero-transport.jpg'),
+  heroSeason:     asset('heroes/hero-season.jpg'),
+  heroItinerary:  asset('heroes/hero-itinerary.jpg'),
+  heroFood:       asset('heroes/hero-food.jpg'),
 
-  // ── 景点 / Attractions (800×600) ────────────────────────────
-  attrWestLake:      u('1547981609-4b6bfe67ca0b', 800, 600), // ✅ 西湖
-  attrLingyin:       u('1697553308664-5aed18530490', 800, 600), // ✅ 灵隐寺/寺庙
-  attrLeifeng:       u('1633373764736-1a06f2f4caa5', 800, 600), // ✅ 雷峰塔
-  attrHefang:        u('1586862118451-efc84a66e704', 800, 600), // ✅ 河坊街/古街
-  attrXixi:          u('1669532055370-b0c282cb115f', 800, 600), // ✅ 西溪湿地
-  attrCanal:         u('1587153662967-c9d9977bf8d3', 800, 600), // ✅ 运河/水道
-  attrSixHarmonies:  u('1629536666798-d5b3565cd728', 800, 600), // ✅ 六和塔/古塔
-  attrSilkMuseum:    u('1729177859947-8a707e0b0b38', 800, 600), // ✅ 丝绸博物馆
+  // ── 景点 / Attractions ──────────────────────────────────────
+  attrWestLake:      asset('attractions/westlake.jpg'),
+  attrLingyin:       asset('attractions/lingyin.jpg'),
+  attrLeifeng:       asset('attractions/leifeng.jpg'),
+  attrHefang:        asset('attractions/hefang.jpg'),
+  attrXixi:          asset('attractions/xixi.jpg'),
+  attrCanal:         asset('attractions/canal.jpg'),
+  attrSixHarmonies:  asset('attractions/six-harmonies.jpg'),
+  attrSilkMuseum:    asset('attractions/silk-museum.jpg'),
 
-  // ── 美食 / Food (800×600) ───────────────────────────────────
-  foodDongpo:         u('1623836506940-1db1f8fbcbcd', 800, 600), // ✅ 东坡肉/红烧肉
-  foodLongjingShrimp: u('1726703062028-e43d2eec8080', 800, 600), // ✅ 龙井虾仁
-  foodBeggarChicken:  u('1658763094617-df6cec01a0b1', 800, 600), // ✅ 叫花鸡/烤鸡
-  foodNoodles:        u('1675764031141-80368d518cc4', 800, 600), // ✅ 片儿川/面条
-  foodFish:           u('1712632036092-5bc1bd933d12', 800, 600), // ✅ 西湖醋鱼/鱼
-  foodSoup:           u('1747798678108-ba9a8606d58b', 800, 600), // ✅ 宋嫂鱼羹/汤
-  foodBraisedPork:    u('1708224001664-11632716fda7', 800, 600), // ✅ 干菜焖肉/炖肉
-  foodLotus:          u('1696254220126-5cc760031ead', 800, 600), // ✅ 藕粉/甜点
-  foodCake:           u('1672991727809-0f98ba5a7373', 800, 600), // ✅ 吴山酥油饼/糕点
-  foodDingSheng:      u('1556761915-3fd5f6f66407', 800, 600), // ✅ 定胜糕/点心
+  // ── 美食 / Food ─────────────────────────────────────────────
+  foodDongpo:         asset('food/dongpo-pork.jpg'),
+  foodLongjingShrimp: asset('food/longjing-shrimp.jpg'),
+  foodBeggarChicken:  asset('food/beggars-chicken.jpg'),
+  foodNoodles:        asset('food/noodles.jpg'),
+  foodFish:           asset('food/vinegar-fish.jpg'),
+  foodSoup:           asset('food/fish-soup.jpg'),
+  foodBraisedPork:    asset('food/braised-pork.jpg'),
+  foodLotus:          asset('food/lotus-root.jpg'),
+  foodCake:           asset('food/crispy-cake.jpg'),
+  foodDingSheng:      asset('food/ding-sheng-cake.jpg'),
 
-  // ── 住宿 / Hotels (800×600) ─────────────────────────────────
-  hotelLuxury:  u('1565299624946-b28f40a0ae38', 800, 600), // ✅ 替代 — 酒店/室内
-  hotelMid:     u('1608124729560-7dc653f179c2', 800, 600), // ✅ 中档酒店
-  hotelBudget:  u('1676487419872-c7febf5e1e86', 800, 600), // ✅ 经济住宿
+  // ── 住宿 / Accommodation（每间酒店独立图片）─────────────────
+  accAmanfayun:      asset('accommodation/hotel-amanfayun.jpg'),
+  accFourSeasons:    asset('accommodation/hotel-fourseasons.jpg'),
+  accParkHyatt:      asset('accommodation/hotel-parkhyatt.jpg'),
+  accZen:            asset('accommodation/hotel-zen.jpg'),
+  accLanting:        asset('accommodation/hotel-lanting.jpg'),
+  accWatermark:      asset('accommodation/hotel-watermark.jpg'),
+  accYouthHostel:    asset('accommodation/hotel-youth.jpg'),
+  accHomeInn:        asset('accommodation/hotel-homeinn.jpg'),
+  accGreenTea:       asset('accommodation/hotel-greentea.jpg'),
 
-  // ── 四季 / Seasons (1200×800) ────────────────────────────────
-  seasonSpring: u('1692060352649-47d41599aeed', 1200, 800), // ✅ 春 — 花/樱
-  seasonSummer: u('1757400338008-e320710c553a', 1200, 800), // ✅ 夏 — 绿荫/阳光
-  seasonAutumn: u('1736048218994-9d1d5375333f', 1200, 800), // ✅ 秋 — 秋色
-  seasonWinter: u('1418985991508-e47386d96a71', 1200, 800), // ✅ 冬 — 冬季风光
+  // ── 四季 / Seasons ────────────────────────────────────────
+  seasonSpring: asset('seasons/spring.jpg'),
+  seasonSummer: asset('seasons/summer.jpg'),
+  seasonAutumn: asset('seasons/autumn.jpg'),
+  seasonWinter: asset('seasons/winter.jpg'),
 };
 
 export default IMAGES;
