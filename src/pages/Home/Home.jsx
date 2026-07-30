@@ -11,6 +11,23 @@ import Reveal, { RevealStagger } from '../../components/ui/Reveal/Reveal';
 import PatternDivider from '../../components/ui/PatternDivider/PatternDivider';
 import styles from './Home.module.css';
 
+const highlightImages = {
+  'west-lake': IMAGES.attrWestLake,
+  lingyin: IMAGES.attrLingyin,
+  'grand-canal': IMAGES.attrCanal,
+  'longjing-tea': IMAGES.accLongjing,
+  silk: IMAGES.attrSilkMuseum,
+  cuisine: IMAGES.foodDongpo,
+};
+
+const highlightRoutes = {
+  'west-lake': '/attractions/west-lake',
+  lingyin: '/attractions/lingyin-temple',
+  'grand-canal': '/attractions/grand-canal-hangzhou',
+  'longjing-tea': '/accommodation/longjing-meijiawu',
+  silk: '/attractions/china-silk-museum',
+  cuisine: '/food',
+};
 export default function Home() {
   const { lang } = useLanguage();
   const navigate = useNavigate();
@@ -64,16 +81,14 @@ export default function Home() {
 
           <div className="grid">
             {highlights.map((item, i) => (
-              <div key={item.id} onClick={() => {
-                if (item.id === 'west-lake') navigate('/attractions');
-                else if (item.id === 'cuisine') navigate('/food');
-              }} style={{ cursor: 'pointer' }}>
-                <Card
-                  title={item.title}
-                  description={item.desc}
-                  index={i}
-                />
-              </div>
+              <Card
+                key={item.id}
+                image={highlightImages[item.id]}
+                title={item.title}
+                description={item.desc}
+                link={highlightRoutes[item.id]}
+                index={i}
+              />
             ))}
           </div>
         </div>
