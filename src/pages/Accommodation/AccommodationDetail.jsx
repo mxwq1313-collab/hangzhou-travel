@@ -12,39 +12,29 @@ export default function AccommodationDetail() {
   const { id } = useParams();
   const { lang } = useLanguage();
   const navigate = useNavigate();
-  const hotel = (accommodations || []).find(a => a.id === id);
+  const stay = accommodations.find((item) => item.id === id);
 
-  if (!hotel) {
-    return (
-      <PageTransition>
-        <div className={styles.notFound}>
-          <p>{lang === 'zh' ? '住宿未找到' : 'Hotel not found'}</p>
-          <Link to="/accommodation" className="btn btn--outline">
-            {lang === 'zh' ? '返回住宿列表' : 'Back to Accommodation'}
-          </Link>
-        </div>
-      </PageTransition>
-    );
+  if (!stay) {
+    return <PageTransition><div className={styles.notFound}><p>{lang === 'zh' ? '住宿区域未找到' : 'Area not found'}</p><Link to="/accommodation" className="btn btn--outline">{lang === 'zh' ? '返回住宿指南' : 'Back to Area Guide'}</Link></div></PageTransition>;
   }
 
-  const tierLabel = {
-    luxury: { zh: '豪华酒店', en: 'Luxury' },
-    mid: { zh: '舒适之选', en: 'Mid-Range' },
-    budget: { zh: '经济实惠', en: 'Budget' },
+  const typeLabel = {
+    central: { zh: '市中心', en: 'Central' },
+    scenic: { zh: '湖山度假', en: 'Scenic' },
+    business: { zh: '商务出行', en: 'Business' },
+    transit: { zh: '交通中转', en: 'Transit' },
   };
 
   return (
     <PageTransition>
       <div className={styles.hero}>
-        <SafeImage src={hotel.image} alt={t(hotel.name, lang)} className={styles.heroImg} seed={3} />
+        <SafeImage src={stay.image} alt={t(stay.name, lang)} className={styles.heroImg} seed={3} />
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
-          <button className={styles.backBtn} onClick={() => navigate('/accommodation')}>
-            ← {lang === 'zh' ? '返回' : 'Back'}
-          </button>
-          <span className="tag tag--gold">{t(tierLabel[hotel.tier] || { zh: '酒店', en: 'Hotel' }, lang)}</span>
-          <h1 className={styles.title}>{t(hotel.name, lang)}</h1>
-          <p className={styles.subtitle}>{t(hotel.area, lang)}</p>
+          <button className={styles.backBtn} onClick={() => navigate('/accommodation')}>← {lang === 'zh' ? '返回' : 'Back'}</button>
+          <span className="tag tag--gold">{t(typeLabel[stay.type], lang)}</span>
+          <h1 className={styles.title}>{t(stay.name, lang)}</h1>
+          <p className={styles.subtitle}>{t(stay.area, lang)}</p>
         </div>
       </div>
 
@@ -52,83 +42,33 @@ export default function AccommodationDetail() {
         <div className="container">
           <div className="two-col--wide-left">
             <div>
-              <SectionTitle
-                title={{ zh: '住宿详情', en: 'About This Stay' }}
-                subtitle={{ zh: '了解更多', en: 'Learn More' }}
-                seal="栖居"
-                alignment="left"
-              />
+              <SectionTitle title={{ zh: '区域详解', en: 'About This Area' }} subtitle={{ zh: '便利与取舍都说清楚', en: 'Benefits and Trade-offs' }} seal="栖居" alignment="left" />
+              <div className="bilingual-block"><p className="zh">{stay.desc.zh}</p><p className="en">{stay.desc.en}</p></div>
 
-              <div className="bilingual-block">
-                <p className="zh">{hotel.desc?.zh}</p>
-                <p className="en">{hotel.desc?.en}</p>
+              <h3 className={styles.sectionH3}>{lang === 'zh' ? '周边去处' : 'Nearby Places'}</h3>
+              <div className={styles.nearby}>
+                {stay.nearbyAttractions.map((place, index) => (
+                  <motion.span key={place.en} className="tag" initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: index * 0.08 }}>
+                    {t(place, lang)}
+                  </motion.span>
+                ))}
               </div>
-
-              {hotel.nearbyAttractions && (
-                <>
-                  <h3 className={styles.sectionH3}>
-                    {lang === 'zh' ? '周边景点' : 'Nearby Attractions'}
-                  </h3>
-                  <div className={styles.nearby}>
-                    {(hotel.nearbyAttractions || []).map((a, i) => (
-                      <motion.span
-                        key={i}
-                        className="tag"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: i * 0.1 }}
-                      >
-                        {t(a, lang)}
-                      </motion.span>
-                    ))}
-                  </div>
-                </>
-              )}
             </div>
 
             <aside className={styles.sidebar}>
               <div className={styles.infoCard}>
-                <h4 className={styles.infoTitle}>
-                  {lang === 'zh' ? '酒店信息' : 'Hotel Info'}
-                </h4>
+                <h4 className={styles.infoTitle}>{lang === 'zh' ? '选择参考' : 'Quick Guide'}</h4>
                 <dl className={styles.infoList}>
-                  <div>
-                    <dt>{lang === 'zh' ? '📍 区域' : '📍 Location'}</dt>
-                    <dd>{t(hotel.area, lang)}</dd>
-                  </div>
-                  <div>
-                    <dt>{lang === 'zh' ? '💰 价格' : '💰 Price'}</dt>
-                    <dd>{t(hotel.priceRange, lang)}</dd>
-                  </div>
-                  <div>
-                    <dt>{lang === 'zh' ? '⭐ 评级' : '⭐ Rating'}</dt>
-                    <dd className={styles.stars}>
-                      {Array.from({ length: 5 }, (_, i) => (
-                        <span key={i} style={{ color: i < (hotel.rating || 0) ? 'var(--imperial-gold)' : 'var(--ink-faint)' }}>★</span>
-                      ))}
-                    </dd>
-                  </div>
-                  {hotel.features && (
-                    <div>
-                      <dt>{lang === 'zh' ? '✨ 特色' : '✨ Features'}</dt>
-                      <dd>
-                        <div className={styles.features}>
-                          {(hotel.features || []).map((f, i) => (
-                            <span key={i} className="tag">{t(f, lang)}</span>
-                          ))}
-                        </div>
-                      </dd>
-                    </div>
-                  )}
+                  <div><dt>{lang === 'zh' ? '区域' : 'Location'}</dt><dd>{t(stay.area, lang)}</dd></div>
+                  <div><dt>{lang === 'zh' ? '常见预算' : 'Typical Budget'}</dt><dd>{t(stay.priceRange, lang)}</dd></div>
+                  <div><dt>{lang === 'zh' ? '适合人群' : 'Best For'}</dt><dd>{t(stay.bestFor, lang)}</dd></div>
+                  <div><dt>{lang === 'zh' ? '交通' : 'Transport'}</dt><dd>{t(stay.transport, lang)}</dd></div>
+                  <div><dt>{lang === 'zh' ? '需要权衡' : 'Trade-offs'}</dt><dd>{t(stay.tradeoffs, lang)}</dd></div>
+                  <div><dt>{lang === 'zh' ? '特点' : 'Features'}</dt><dd><div className={styles.features}>{stay.features.map((item) => <span key={item.en} className="tag">{t(item, lang)}</span>)}</div></dd></div>
                 </dl>
               </div>
-
               <PatternDivider variant="line" color="gold" />
-
-              <Link to="/accommodation" className="btn btn--outline" style={{ width: '100%', textAlign: 'center' }}>
-                ← {lang === 'zh' ? '返回住宿列表' : 'All Accommodations'}
-              </Link>
+              <Link to="/accommodation" className="btn btn--outline" style={{ width: '100%', textAlign: 'center' }}>← {lang === 'zh' ? '全部住宿区域' : 'All Areas'}</Link>
             </aside>
           </div>
         </div>

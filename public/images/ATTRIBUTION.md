@@ -1,80 +1,39 @@
-# 图片来源说明 / Image Attribution
+# ???????
 
-本项目所有图片来自 [Unsplash](https://unsplash.com)，遵循 [Unsplash License](https://unsplash.com/license)（免费用于商业和非商业用途，署名非必须但受鼓励）。
+???????????????????????????????????????????? AI ?????????????????????????????JPEG ????????????????????????
 
-## 目录结构
+> ????????????????????????????`og-image.jpg` ????????????????
 
-```
-public/images/
-├── heroes/          Hero 横幅 (1600×900)
-├── attractions/     景点图片 (800×600)
-├── food/            美食图片 (800×600)
-├── accommodation/   住宿图片 (800×600)
-└── seasons/         四季图片 (1200×800)
-```
+| ???? | ???? | ??/?? | ?? | ?? |
+|---|---|---|---|---|
+| `images/attractions/canal.jpg` | ????????? | Windmemories | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20231122_Gongchen_Bridge_01.jpg) |
+| `images/attractions/six-harmonies.jpg` | ??? | Windmemories | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20240128_Liuhe_Pagoda_01.jpg) |
+| `images/attractions/westlake.jpg` | ???????? | Windmemories | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:20260424_West_Lake_and_Hangzhou_Skyline.jpg) |
+| `images/attractions/silk-museum.jpg` | ??????? | Siyuwj | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:China_Silk_Museum,_2017-11-12_01.jpg) |
+| `images/attractions/hefang.jpg` | ??? | HoweyYuan | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hefang_Street_20240729.jpg) |
+| `images/attractions/leifeng.jpg` | ??? | xiquinhosilva | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Leifeng_Pagoda_20191102.jpg) |
+| `images/attractions/lingyin.jpg` | ??? | Tyg728 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lingyin_Temple,_Hangzhou_20161003.jpg) |
+| `images/attractions/xixi.jpg` | ???? | Takashishin | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Xixi_wetland.jpg) |
+| `images/food/lotus-root.jpg` | ?????? | MNXANL | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:202308_West_Lake_Lotus_Root_Starch_with_Osmanthus_Topping.jpg) |
+| `images/food/beggars-chicken.jpg` | ??? | NeoBatfreak | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Beggar%27s_Chicken_(_%E5%8F%AB%E5%8C%96%E9%9B%9E).jpg) |
+| `images/food/dongpo-pork.jpg` | ??? | Pauloleong2002 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dongpo_pork_(a_Hangzhou_dish).jpg) |
+| `images/food/longjing-shrimp.jpg` | ???? | 猫猫的日记本 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Longjing_prawns_in_Hangzhou_Restaurant_2015-07.JPG) |
+| `images/food/noodles.jpg` | ??? | N509FZ | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pian%27erchuan_noodles_at_Kuiyuanguan_(20190807110615).jpg) |
+| `images/food/fish-soup.jpg` | ???? | NeoBatfreak | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sister_Song%27s_Fish_Soup_(%E5%AE%8B%E5%AB%82%E9%AD%9A%E7%BE%B9).png) |
+| `images/food/braised-pork.jpg` | ????? | N509FZ | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Steamed_Sliced_Pork_Belly_with_Preserved_Vegetable_set_meal_on_G901_(20220824113401).jpg) |
+| `images/food/vinegar-fish.jpg` | ???? | Zheng Zhou | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:West_Lake_Fish_in_Vinegar_Gravy.jpg) |
+| `images/seasons/autumn.jpg` | ???? | HALUK COMERTEL | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hangzhou-West_lake-China_-_panoramio_(1).jpg) |
+| `images/accommodation/east-station.jpg` | ?????? | Staeiou | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hangzhou_East_railway_station_interior.jpg) |
+| `images/accommodation/longjing.jpg` | ??????? | Peter K Burian | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Longjing_Tea_field,_Dragon_Well_area,_Meijiawu_China.jpg) |
+| `images/accommodation/qianjiang.jpg` | ???? | Nat4Eben | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Qianjiang_New_City_20230729.jpg) |
+| `images/seasons/spring.jpg` | ???? | Honmingjun | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sudi_Spring.jpg) |
+| `images/accommodation/wulin.jpg` | ???? | 钉钉 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Wulin_Square.jpg) |
+| `images/seasons/winter.jpg` | ???? | zhiyin586@163.com | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%E6%9D%AD%E5%B7%9E.%E8%A5%BF%E6%B9%96%E9%9B%AA%E6%99%AF%EF%BC%88%E5%9C%A3%E5%A1%94%E9%97%B2%E4%BA%AD%EF%BC%89_-_panoramio.jpg) |
+| `images/seasons/summer.jpg` | ?????? | Zhou Guanhuai | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:%E8%A5%BF%E6%B9%96%E5%8D%81%E6%99%AF-%E6%9B%B2%E9%99%A2%E9%A3%8E%E8%8D%B7.jpg) |
+| `images/heroes/hero-transport.jpg` | ???? 2 ???? | Huandy618 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Line_2,_Hangzhou_Metro_03.jpg) |
 
-## 图片对应关系
+## ????
 
-### Heroes
-| 文件 | 用途 |
-|------|------|
-| hero-westlake.jpg | 景点页 Hero |
-| hero-leifeng.jpg | 景点页 / 雷峰塔 |
-| hero-lingyin.jpg | 灵隐寺 |
-| hero-hotel.jpg | 住宿页 Hero |
-| hero-transport.jpg | 交通页 Hero |
-| hero-season.jpg | 四季页 Hero |
-| hero-itinerary.jpg | 行程页 Hero |
-| hero-food.jpg | 美食页 Hero |
-
-### 景点
-| 文件 | 对应内容 |
-|------|----------|
-| westlake.jpg | 西湖 |
-| lingyin.jpg | 灵隐寺 |
-| leifeng.jpg | 雷峰塔 |
-| hefang.jpg | 河坊街 |
-| xixi.jpg | 西溪湿地 |
-| canal.jpg | 京杭大运河 |
-| six-harmonies.jpg | 六和塔 |
-| silk-museum.jpg | 中国丝绸博物馆 |
-
-### 美食
-| 文件 | 对应菜品 |
-|------|----------|
-| dongpo-pork.jpg | 东坡肉 |
-| longjing-shrimp.jpg | 龙井虾仁 |
-| beggars-chicken.jpg | 叫花鸡 |
-| noodles.jpg | 片儿川 |
-| vinegar-fish.jpg | 西湖醋鱼 |
-| fish-soup.jpg | 宋嫂鱼羹 |
-| braised-pork.jpg | 干菜焖肉 |
-| lotus-root.jpg | 西湖藕粉 |
-| crispy-cake.jpg | 吴山酥油饼 |
-| ding-sheng-cake.jpg | 定胜糕 |
-
-### 住宿（9 家独立图片）
-| 文件 | 对应酒店 |
-|------|----------|
-| hotel-amanfayun.jpg | 法云安缦 |
-| hotel-fourseasons.jpg | 西湖四季酒店 |
-| hotel-parkhyatt.jpg | 柏悦酒店 |
-| hotel-zen.jpg | 隐居西湖 |
-| hotel-lanting.jpg | 兰亭安麓 |
-| hotel-watermark.jpg | 水印之家 |
-| hotel-youth.jpg | 西湖青年旅舍 |
-| hotel-homeinn.jpg | 如家精选 |
-| hotel-greentea.jpg | 青茗小院 |
-
-### 四季
-| 文件 | 对应季节 |
-|------|----------|
-| spring.jpg | 春 |
-| summer.jpg | 夏 |
-| autumn.jpg | 秋 |
-| winter.jpg | 冬 |
-
-## 许可
-
-所有图片来自 Unsplash 平台，遵循 [Unsplash License](https://unsplash.com/license)。
-部分图片为通用示意图（非具体酒店/菜品实拍），已在 UI 中标注"环境示意图"。
+- CC BY ? CC BY-SA ??????????????????????????
+- CC BY-SA ????????????????????
+- ???????????????????????????????????????????????

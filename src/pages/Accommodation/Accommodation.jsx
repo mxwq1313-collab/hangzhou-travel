@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import IMAGES from '../../data/images';
 import { useLanguage, t } from '../../context/LanguageContext';
 import { accommodations } from '../../data/accommodation';
+import IMAGES from '../../data/images';
 import Hero from '../../components/ui/Hero/Hero';
 import SectionTitle from '../../components/ui/SectionTitle/SectionTitle';
 import Card from '../../components/ui/Card/Card';
@@ -11,65 +11,52 @@ import styles from './Accommodation.module.css';
 
 export default function Accommodation() {
   const { lang } = useLanguage();
-  const [tier, setTier] = useState('all');
-
-  const tiers = [
-    { id: 'all', label: { zh: '全部', en: 'All' } },
-    { id: 'luxury', label: { zh: '豪华酒店', en: 'Luxury' } },
-    { id: 'mid', label: { zh: '舒适之选', en: 'Mid-Range' } },
-    { id: 'budget', label: { zh: '经济实惠', en: 'Budget' } },
+  const [type, setType] = useState('all');
+  const filters = [
+    { id: 'all', label: { zh: '全部区域', en: 'All Areas' } },
+    { id: 'scenic', label: { zh: '湖山度假', en: 'Scenic' } },
+    { id: 'central', label: { zh: '市中心', en: 'Central' } },
+    { id: 'business', label: { zh: '商务出行', en: 'Business' } },
+    { id: 'transit', label: { zh: '交通中转', en: 'Transit' } },
   ];
-
-  const filtered = tier === 'all'
-    ? (accommodations || [])
-    : (accommodations || []).filter(a => a.tier === tier);
+  const filtered = type === 'all' ? accommodations : accommodations.filter((stay) => stay.type === type);
 
   return (
     <>
       <Hero
         image={IMAGES.heroHotel}
-        title={{ zh: '杭州住宿', en: 'Accommodation' }}
-        subtitle={{ zh: '枕水而居 · 诗意栖居', en: 'Rest by the Water, Dream in Poetry' }}
+        title={{ zh: '杭州住哪里', en: 'Where to Stay in Hangzhou' }}
+        subtitle={{ zh: '先选区域，再选酒店', en: 'Choose the Area Before the Hotel' }}
         description={{
-          zh: '从西湖畔的奢华五星酒店到老城区的精品民宿，点击卡片查看详情。',
-          en: 'From luxury five-star hotels by West Lake to boutique guesthouses — tap for details.'
+          zh: '湖滨方便、灵隐清幽、钱江新城现代、东站适合中转。用真实区域照片和交通取舍，帮你避开“名字在西湖、实际离很远”的误区。',
+          en: 'Compare real neighbourhoods, transport and trade-offs—from convenient Hubin to quiet Lingyin and modern Qianjiang New City.',
         }}
         height="large"
       />
 
       <section className="section">
         <div className="container">
-          <SectionTitle
-            title={{ zh: '住宿推荐', en: 'Where to Stay' }}
-            subtitle={{ zh: '总有一处让您宾至如归', en: 'Find Your Home Away from Home' }}
-            seal="栖居"
-          />
-
+          <SectionTitle title={{ zh: '住宿区域指南', en: 'Area Guide' }} subtitle={{ zh: '按行程选择落脚点', en: 'Match Your Base to Your Itinerary' }} seal="栖居" />
           <div className={styles.filter}>
-            {tiers.map((ti) => (
-              <button
-                key={ti.id}
-                className={`${styles.filterBtn} ${tier === ti.id ? styles.filterActive : ''}`}
-                onClick={() => setTier(ti.id)}
-              >
-                {t(ti.label, lang)}
+            {filters.map((item) => (
+              <button key={item.id} className={`${styles.filterBtn} ${type === item.id ? styles.filterActive : ''}`} onClick={() => setType(item.id)}>
+                {t(item.label, lang)}
               </button>
             ))}
           </div>
 
-          <RevealStagger staggerDelay={0.1}>
+          <RevealStagger staggerDelay={0.08}>
             <div className="grid">
-              {filtered.map((hotel, i) => (
+              {filtered.map((stay, index) => (
                 <Card
-                  key={hotel.id}
-                  image={hotel.image}
-                  title={hotel.name}
-                  subtitle={hotel.area}
-                  description={hotel.desc ? { zh: (hotel.desc.zh || '').slice(0, 60) + (hotel.desc.zh.length > 60 ? '…' : ''), en: (hotel.desc.en || '').slice(0, 80) + (hotel.desc.en.length > 80 ? '…' : '') } : undefined}
-                  tags={hotel.rating ? [{ zh: `★ ${hotel.rating}/5`, en: `★ ${hotel.rating}/5` }] : []}
-                  rating={hotel.rating}
-                  link={`/accommodation/${hotel.id}`}
-                  index={i}
+                  key={stay.id}
+                  image={stay.image}
+                  title={stay.name}
+                  subtitle={stay.area}
+                  description={{ zh: `${stay.desc.zh.slice(0, 72)}…`, en: `${stay.desc.en.slice(0, 100)}…` }}
+                  tags={(stay.features || []).slice(0, 2)}
+                  link={`/accommodation/${stay.id}`}
+                  index={index}
                 />
               ))}
             </div>
@@ -78,30 +65,23 @@ export default function Accommodation() {
       </section>
 
       <PatternDivider variant="cloud" color="gold" />
-
-      {/* 住宿贴士 / Tips */}
       <section className="section" style={{ background: 'var(--rice-paper-warm)' }}>
         <div className="container">
-          <SectionTitle
-            title={{ zh: '住宿贴士', en: 'Accommodation Tips' }}
-            subtitle={{ zh: '住得舒心 · 玩得尽兴', en: 'Rest Well, Explore Better' }}
-            seal="锦囊"
-          />
-
+          <SectionTitle title={{ zh: '订房前检查', en: 'Before You Book' }} subtitle={{ zh: '看地图、看近期照片、看真实通勤', en: 'Map, Recent Photos and Real Travel Time' }} seal="锦囊" />
           <div className="grid">
             {[
-              { title: { zh: '提前预订', en: 'Book Early' }, desc: { zh: '节假日和旅游旺季酒店价格大幅上涨，建议提前1-2个月预订。', en: 'Hotel prices surge during holidays and peak seasons. Book 1-2 months ahead.' } },
-              { title: { zh: '位置优先', en: 'Location Matters' }, desc: { zh: '推荐住在西湖周边、武林广场或钱江新城区域，交通便利景点集中。', en: 'Stay near West Lake, Wulin Square, or Qianjiang New Town for convenience.' } },
-              { title: { zh: '民宿体验', en: 'Try a Guesthouse' }, desc: { zh: '龙井、满觉陇等地的茶园民宿非常有特色，可体验采茶品茶的地道生活。', en: 'Tea plantation guesthouses in Longjing and Manjuelong offer unique local experiences.' } },
-            ].map((tip, i) => (
-              <Reveal key={i} delay={i * 0.15}>
-                <div className={styles.tipCard}>
-                  <h3 className={styles.tipTitle}>{t(tip.title, lang)}</h3>
-                  <p className={styles.tipDesc}>{t(tip.desc, lang)}</p>
-                </div>
+              { title: { zh: '不要只看直线距离', en: 'Ignore Straight-Line Distance' }, desc: { zh: '西湖、湿地和车站范围都很大。把酒店地址放进地图，分别测算到地铁口和首个景点的步行路线。', en: 'West Lake, Xixi and the rail station are large. Map the actual walking route to both a metro entrance and your first sight.' } },
+              { title: { zh: '节假日提前订', en: 'Book Holiday Dates Early' }, desc: { zh: '小长假、暑期和赏桂季价格波动明显。优先选择可取消订单，并在出发前再次确认入住规则。', en: 'Rates move sharply around public holidays and peak seasons. Prefer refundable bookings and reconfirm check-in rules.' } },
+              { title: { zh: '查看近三个月实拍', en: 'Check Recent Guest Photos' }, desc: { zh: '重点看房间窗景、卫生间、隔音、潮湿和装修年份，不要只依据酒店宣传图或旧评价。', en: 'Inspect recent room, bathroom, soundproofing and renovation photos instead of relying on marketing images.' } },
+            ].map((tip, index) => (
+              <Reveal key={tip.title.en} delay={index * 0.12}>
+                <div className={styles.tipCard}><h3 className={styles.tipTitle}>{t(tip.title, lang)}</h3><p className={styles.tipDesc}>{t(tip.desc, lang)}</p></div>
               </Reveal>
             ))}
           </div>
+          <p style={{ marginTop: '2rem', textAlign: 'center', color: 'var(--ink-light)', fontSize: '0.9rem' }}>
+            {lang === 'zh' ? '价格为常见区间参考，会随日期和房型变化；预订前请以平台与住宿方最新信息为准。' : 'Price bands are indicative and vary by date and room type; verify current details before booking.'}
+          </p>
         </div>
       </section>
     </>

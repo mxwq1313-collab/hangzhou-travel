@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 /**
- * 安全图片组件 — 加载失败时显示本地 fallback 渐变
- * Safe image with fallback gradient on error
+ * 安全图片组件 — 加载失败时自动重试，最终失败显示本地 fallback 渐变
+ * Safe image with retry on flaky networks, fallback gradient on final error
  *
  * Props:
  *   src          — 图片 URL
@@ -18,6 +18,11 @@ import { useState } from 'react';
  *   onLoad       — 加载成功回调
  *   onError      — 加载失败回调
  */
+
+// 失败重试配置 — 应对 github.io 等 CDN 偶发连接失败
+// Retry config — for flaky CDN connections (e.g. intermittent resets)
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 1000;
 
 const FALLBACK_GRADIENTS = [
   'linear-gradient(135deg, #8db5c0 0%, #5a8a7a 100%)',
@@ -47,9 +52,31 @@ export default function SafeImage({
   onError,
 }) {
   const [failed, setFailed] = useState(false);
+  const [retrySrc, setRetrySrc] = useState(src);
+  const retriesRef = useRef(0);
+  const timerRef = useRef(null);
   const gradient = FALLBACK_GRADIENTS[Math.abs(seed) % FALLBACK_GRADIENTS.length];
 
+  // src 变化时重置状态 / Reset state when the image source changes
+  useEffect(() => {
+    setFailed(false);
+    setRetrySrc(src);
+    retriesRef.current = 0;
+    clearTimeout(timerRef.current);
+    return () => clearTimeout(timerRef.current);
+  }, [src]);
+
   const handleError = () => {
+    // 先自动重试（绕过缓存），重试耗尽后再回退
+    // Retry with cache-busting first; fall back only after retries exhausted
+    if (retriesRef.current < MAX_RETRIES) {
+      retriesRef.current += 1;
+      timerRef.current = setTimeout(() => {
+        const sep = src.includes('?') ? '&' : '?';
+        setRetrySrc(`${src}${sep}retry=${retriesRef.current}`);
+      }, RETRY_DELAY_MS * retriesRef.current);
+      return;
+    }
     setFailed(true);
     if (onError) onError();
   };
@@ -99,7 +126,7 @@ export default function SafeImage({
 
   return (
     <img
-      src={src}
+      src={retrySrc}
       alt={alt}
       className={className}
       style={baseStyle}
